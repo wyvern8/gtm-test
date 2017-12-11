@@ -1,0 +1,13 @@
+{
+  "pull_request": {
+    "tasks": [
+      {
+        "executor": "ping",
+        "context": "integration",
+        "options": {
+          "count": 1
+        }
+      }
+    ]
+  }
+}
