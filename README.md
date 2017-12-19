@@ -1,5 +1,7 @@
 # gtm-test
-Template repo for integration tests and starting point for github-task-manager agent extensions and plugins.  Please note that custom plugin development is only supported as far as exposing the extension points.  It is your responsibility to design and debug your plugins.
+Template repo for integration tests and starting point for github-task-manager agent extensions and plugins.  https://github.com/wyvern8/github-task-manager
+
+Please note that custom plugin development is only supported as far as exposing the extension points.  It is your responsibility to design and debug your plugins.
 
 ## install
 - fork this repo and `npm install`
