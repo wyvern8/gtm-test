@@ -1,0 +1,85 @@
+service: gtmGithubHook
+plugins:
+  - serverless-dotenv-plugin
+  - serverless-webpack
+
+provider:
+  name: aws
+  runtime: nodejs6.10
+
+  stage: dev
+  region: ${env:GTM_AWS_REGION}
+
+  environment:
+      GTM_GITHUB_WEBHOOK_SECRET: ${env:GTM_GITHUB_WEBHOOK_SECRET}
+
+
+  iamRoleStatements:
+    - Effect: Allow
+      Action:
+        - sqs:SendMessage
+      Resource:
+        Fn::GetAtt: [ PendingQueue, Arn ]
+
+    - Effect: Allow
+      Action:
+        - sqs:ReceiveMessage
+        - sqs:DeleteMessage
+      Resource:
+        Fn::GetAtt: [ ResultsQueue, Arn ]
+
+
+package:
+  individually: true
+  exclude:
+    - ".*/**"
+
+functions:
+  gtmGithubHook:
+    handler: dist/src/serverless/gtmGithubHook/gtmGithubHook.listener
+    environment:
+      SQS_PENDING_QUEUE_URL:
+        Ref: PendingQueue
+
+    package:
+      include:
+        - dist/src/serverless/gtmGithubHook/**
+
+    events:
+      - http:
+          path: gtm-github-hook
+          method: post
+          cors: true
+
+  gtmGithubResults:
+    handler: dist/src/serverless/gtmGithubResults/gtmGithubResults.handle
+    environment:
+      SQS_RESULTS_QUEUE_URL:
+        Ref: ResultsQueue
+
+    package:
+      include:
+        - dist/src/serverless/gtmGithubResults/**
+
+    events:
+      - sns: ${env:GTM_SNS_RESULTS_TOPIC}
+
+resources:
+  Resources:
+    PendingQueue:
+      Type: AWS::SQS::Queue
+      Properties:
+        QueueName: ${env:GTM_SQS_PENDING_QUEUE}
+        MessageRetentionPeriod: 1209600
+        VisibilityTimeout: 7200
+
+    ResultsQueue:
+      Type: AWS::SQS::Queue
+      Properties:
+        QueueName: ${env:GTM_SQS_RESULTS_QUEUE}
+        MessageRetentionPeriod: 1209600
+        VisibilityTimeout: 7200
+
+custom:
+  dotenv:
+    path: .env
