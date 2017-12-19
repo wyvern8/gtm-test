@@ -1,0 +1,104 @@
+{
+  "name": "gtm-test",
+  "version": "0.0.0-semantically-released",
+  "description": "template repo for integration tests",
+  "main": "index.js",
+  "scripts": {
+    "build": "npm run lint && rimraf dist/ && babel ./src --out-dir dist/src --copy-files && babel ./test --out-dir dist/test --copy-files && babel ./*.js --out-dir dist/ --copy-files",
+    "commit": "./node_modules/.bin/git-cz",
+    "lint": "node ./node_modules/.bin/eslint ./src ./test --fix --ext=.js --ignore-pattern src/agent/static/ --ignore-pattern node_modules/ --ignore-pattern dist/ --ignore-pattern coverage/ --quiet",
+    "test": "npm run build && cross-env NODE_ENV=test nyc ./node_modules/.bin/mocha --timeout 10000 --require babel-core/register --require babel-polyfill './dist/test/**/*.spec.js'",
+    "agent": "node ./dist/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wyvern8/gtm-test.git"
+  },
+  "author": "Andrew Vaughan <andrewv@smartcreations.com.au> (https://halt.sh)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/wyvern8/gtm-test/issues"
+  },
+  "homepage": "https://github.com/wyvern8/gtm-test#readme",
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.2",
+    "babel-plugin-istanbul": "^4.1.5",
+    "babel-plugin-transform-async-to-generator": "^6.24 .1",
+    "babel-plugin-transform-class-properties": "^6.24.1",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-stage-0": "^6.24.1",
+    "babel-register": "^6.26.0",
+    "chai": "^4.1.2",
+    "commitizen": "^2.9.6",
+    "cross-env": "^5.1.1",
+    "cz-conventional-changelog": "^2.1.0",
+    "dotenv": "^4.0.0",
+    "eslint": "^4.12.0",
+    "eslint-config-prettier": "2.9.0",
+    "eslint-plugin-prettier": "2.4.0",
+    "firstline": "^1.2.1",
+    "format-json": "^1.0.3",
+    "mocha": "^4.0.1",
+    "node-sass": "^4.7.2",
+    "nyc": "^11.3.0",
+    "prettier": "1.9.2",
+    "rimraf": "^2.6.2",
+    "semantic-release": "^8.2.0",
+    "serverless": "^1.24.1",
+    "serverless-dotenv-plugin": "^1.0.1",
+    "serverless-webpack": "^4.1.0",
+    "sinon": "^4.1.2",
+    "sqs-producer": "^1.6.2",
+    "supertest": "^3.0.0"
+  },
+  "engines": {
+    "node": ">=8.4.0"
+  },
+  "nyc": {
+    "require": [
+      "babel-register"
+    ],
+    "reporter": [
+      "lcov",
+      "text"
+    ],
+    "sourceMap": false,
+    "instrument": false
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  },
+  "dependencies": {
+    "github-task-manager": "^2.10.2",
+    "babel-plugin-transform-runtime": "^6.23.0",
+    "babel-polyfill": "^6.26.0",
+    "bunyan": "^1.8.12",
+    "bunyan-cloudwatch": "^2.2.0",
+    "bunyan-format": "^0.2.1",
+    "dockerode": "^2.5.3",
+    "express": "^4.16.2",
+    "express-nunjucks": "^2.2.3",
+    "express-sse": "^0.4.1",
+    "github": "^13.0.1",
+    "globule": "^1.2.0",
+    "highlight.js": "^9.12.0",
+    "jenkins": "^0.20.1",
+    "nunjucks": "^3.0.1",
+    "proxy-agent": "^2.1.0",
+    "request": "^2.83.0",
+    "request-promise-native": "^1.0.5",
+    "require-dir": "^0.3.2",
+    "safe-json-stringify": "^1.0.4",
+    "smoketail": "^0.1.0",
+    "sqs-consumer": "^3.8.0",
+    "systemjs": "^0.20.19",
+    "teamcity-rest-api": "0.0.8",
+    "travis-ci": "^2.1.1",
+    "uuid": "^3.1.0",
+    "webpack": "^3.8.1"
+  }
+}
