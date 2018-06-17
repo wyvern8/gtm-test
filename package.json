@@ -73,7 +73,7 @@
     }
   },
   "dependencies": {
-    "github-task-manager": "^2.10.2",
+    "github-task-manager": "^5.0.1",
     "babel-plugin-transform-runtime": "^6.23.0",
     "babel-polyfill": "^6.26.0",
     "bunyan": "^1.8.12",
