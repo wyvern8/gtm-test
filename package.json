@@ -8,7 +8,9 @@
     "commit": "./node_modules/.bin/git-cz",
     "lint": "node ./node_modules/.bin/eslint ./src ./test --fix --ext=.js --ignore-pattern src/agent/static/ --ignore-pattern node_modules/ --ignore-pattern dist/ --ignore-pattern coverage/ --quiet",
     "test": "npm run build && cross-env NODE_ENV=test nyc ./node_modules/.bin/mocha --timeout 10000 --require babel-core/register --require babel-polyfill './dist/test/**/*.spec.js'",
-    "agent": "node ./dist/index.js"
+    "agent": "node ./dist/index.js",
+    "snyk-protect": "snyk protect",
+    "prepare": "npm run snyk-protect"
   },
   "repository": {
     "type": "git",
@@ -99,6 +101,8 @@
     "teamcity-rest-api": "0.0.8",
     "travis-ci": "^2.1.1",
     "uuid": "^3.1.0",
-    "webpack": "^3.8.1"
-  }
+    "webpack": "^3.8.1",
+    "snyk": "^1.83.0"
+  },
+  "snyk": true
 }
