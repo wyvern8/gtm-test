@@ -1,0 +1,58 @@
+# Snyk (https://snyk.io) policy file, patches or ignores known vulnerabilities.
+version: v1.14.1
+ignore: {}
+# patches apply the minimum changes required to fix a vulnerability
+patch:
+  SNYK-JS-LODASH-567746:
+    - github > lodash:
+        patched: '2020-05-01T02:35:38.020Z'
+    - globule > lodash:
+        patched: '2020-05-01T02:35:38.020Z'
+    - github-task-manager > github > lodash:
+        patched: '2020-05-01T02:35:38.020Z'
+    - github-task-manager > globule > lodash:
+        patched: '2020-05-01T02:35:38.020Z'
+    - request-promise-native > request-promise-core > lodash:
+        patched: '2020-05-01T02:35:38.020Z'
+    - sqs-consumer > async > lodash:
+        patched: '2020-05-01T02:35:38.020Z'
+    - webpack > async > lodash:
+        patched: '2020-05-01T02:35:38.020Z'
+    - bunyan-cloudwatch > aws-sdk > xmlbuilder > lodash:
+        patched: '2020-05-01T02:35:38.020Z'
+    - smoketail > aws-sdk > xmlbuilder > lodash:
+        patched: '2020-05-01T02:35:38.020Z'
+    - sqs-consumer > aws-sdk > xmlbuilder > lodash:
+        patched: '2020-05-01T02:35:38.020Z'
+    - github-task-manager > request-promise-native > request-promise-core > lodash:
+        patched: '2020-05-01T02:35:38.020Z'
+    - github-task-manager > sqs-consumer > async > lodash:
+        patched: '2020-05-01T02:35:38.020Z'
+    - webpack > watchpack > async > lodash:
+        patched: '2020-05-01T02:35:38.020Z'
+    - github-task-manager > webpack > async > lodash:
+        patched: '2020-05-01T02:35:38.020Z'
+    - bunyan-cloudwatch > aws-sdk > xml2js > xmlbuilder > lodash:
+        patched: '2020-05-01T02:35:38.020Z'
+    - smoketail > aws-sdk > xml2js > xmlbuilder > lodash:
+        patched: '2020-05-01T02:35:38.020Z'
+    - sqs-consumer > aws-sdk > xml2js > xmlbuilder > lodash:
+        patched: '2020-05-01T02:35:38.020Z'
+    - github-task-manager > bunyan-cloudwatch > aws-sdk > xmlbuilder > lodash:
+        patched: '2020-05-01T02:35:38.020Z'
+    - github-task-manager > smoketail > aws-sdk > xmlbuilder > lodash:
+        patched: '2020-05-01T02:35:38.020Z'
+    - github-task-manager > sqs-consumer > aws-sdk > xmlbuilder > lodash:
+        patched: '2020-05-01T02:35:38.020Z'
+    - travis-ci > request > form-data > async > lodash:
+        patched: '2020-05-01T02:35:38.020Z'
+    - github-task-manager > webpack > watchpack > async > lodash:
+        patched: '2020-05-01T02:35:38.020Z'
+    - github-task-manager > bunyan-cloudwatch > aws-sdk > xml2js > xmlbuilder > lodash:
+        patched: '2020-05-01T02:35:38.020Z'
+    - github-task-manager > smoketail > aws-sdk > xml2js > xmlbuilder > lodash:
+        patched: '2020-05-01T02:35:38.020Z'
+    - github-task-manager > sqs-consumer > aws-sdk > xml2js > xmlbuilder > lodash:
+        patched: '2020-05-01T02:35:38.020Z'
+    - github-task-manager > travis-ci > request > form-data > async > lodash:
+        patched: '2020-05-01T02:35:38.020Z'
