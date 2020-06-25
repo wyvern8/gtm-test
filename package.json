@@ -76,7 +76,7 @@
     "github-task-manager": "^2.10.2",
     "babel-plugin-transform-runtime": "^6.23.0",
     "babel-polyfill": "^6.26.0",
-    "bunyan": "^1.8.12",
+    "bunyan": "^1.8.13",
     "bunyan-cloudwatch": "^2.2.0",
     "bunyan-format": "^0.2.1",
     "dockerode": "^2.5.3",
