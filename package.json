@@ -89,7 +89,7 @@
     "jenkins": "^0.20.1",
     "nunjucks": "^3.0.1",
     "proxy-agent": "^2.1.0",
-    "request": "^2.83.0",
+    "request": "^2.88.0",
     "request-promise-native": "^1.0.5",
     "require-dir": "^0.3.2",
     "safe-json-stringify": "^1.0.4",
@@ -99,6 +99,6 @@
     "teamcity-rest-api": "0.0.8",
     "travis-ci": "^2.1.1",
     "uuid": "^3.1.0",
-    "webpack": "^3.8.1"
+    "webpack": "^3.11.0"
   }
 }
