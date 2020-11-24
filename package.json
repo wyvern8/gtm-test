@@ -85,7 +85,7 @@
     "express-sse": "^0.4.1",
     "github": "^13.0.1",
     "globule": "^1.2.0",
-    "highlight.js": "^9.12.0",
+    "highlight.js": "^10.1.2",
     "jenkins": "^0.20.1",
     "nunjucks": "^3.0.1",
     "proxy-agent": "^2.1.0",
